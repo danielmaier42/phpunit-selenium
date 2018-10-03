@@ -49,15 +49,27 @@ class GoogleTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Google', $this->webDriver->getTitle());
     }
 
-    public function testSearch()
+    public function testGoogleBusiness()
     {
         $this->webDriver->get($this->url);
 
         $queryInput = $this->webDriver->findElement(WebDriverBy::name('q'));
-
-        $this->assertNotNull($queryInput, 'Could not find Query Input with name q');
-
         $queryInput->sendKeys('GitHub');
         $queryInput->submit();
+
+        $this->assertContains('GitHub -', $this->webDriver->getTitle());
+
+        $additionalInformationContainer = $this->webDriver->findElement(WebDriverBy::id('rhs'));
+        $additionalInformationHeader = $additionalInformationContainer->findElement(WebDriverBy::className('kp-header'));
+        $additionalInformationTitle = $additionalInformationHeader->findElement(WebDriverBy::className('kno-ecr-pt'));
+        $additionalInformationContent = $additionalInformationTitle->findElements(WebDriverBy::tagName('span'));
+
+        $this->assertCount(1, $additionalInformationContent);
+        $this->assertEquals('GitHub Inc.', $additionalInformationContent[0]->getText());
+    }
+
+    protected function tearDown()
+    {
+        $this->webDriver->close();
     }
 }
