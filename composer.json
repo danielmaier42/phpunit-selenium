@@ -1,5 +1,5 @@
 {
-    "name": "danielmaier/selenium",
+    "name": "danielmaier/phpunit-selenium-examples",
     "description": "Implement Selenium Tests with PHPUnit",
     "type": "project",
     "license": "GPL",
