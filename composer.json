@@ -1,0 +1,16 @@
+{
+    "name": "danielmaier/selenium",
+    "description": "Implement Selenium Tests with PHPUnit",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Daniel Maier",
+            "email": "office@maierdaniel.de"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit-selenium": ">=1.2"
+    }
+}
