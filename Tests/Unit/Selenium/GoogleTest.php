@@ -28,11 +28,11 @@ class GoogleTest extends PHPUnit_Extensions_Selenium2TestCase
     public function testSearch()
     {
         $this->url($this->url);
+
         $queryInput = $this->byName('q');
-
-        $this->assertNotNull($queryInput, 'Could not find Query Input with name q');
-
         $queryInput->value('GitHub');
         $queryInput->submit();
+
+        $this->assertContains('GitHub -', $this->title());
     }
 }
