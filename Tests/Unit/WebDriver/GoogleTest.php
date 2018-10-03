@@ -24,7 +24,7 @@ class GoogleTest extends PHPUnit_Framework_TestCase
      * @var array
      */
     protected $webDriverCapabilities = [
-        WebDriverCapabilityType::BROWSER_NAME => 'firefox'
+        WebDriverCapabilityType::BROWSER_NAME => 'chrome'
     ];
 
     /**
